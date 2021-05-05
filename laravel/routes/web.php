@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,6 +16,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::post('/', function (Request $r) {
+    dd($r->hasFile('image'));
+    return "ok";//view('welcome');
 });
 
 Route::get('/dashboard', function () {

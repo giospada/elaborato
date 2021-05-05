@@ -1,57 +1,49 @@
-
-
 @extends('template.first')
 
 @section('content')
-
-
-<nav class="flex px-4 border-b md:shadow-lg items-center relative">
-        <img class="h-14 py-4 md:py-0 pr-12" src="images/icon.svg">
-        <ul class="md:px-2 ml-auto md:flex md:space-x-2 absolute md:relative top-full left-0 right-0">
-            <li>
-                <a href="#" class="flex md:inline-flex p-4 items-center hover:bg-gray-50">
-                    <span>Dashboard</span>
-                </a>
-            </li>
-            <li>
-                <a href="#" class="flex md:inline-flex p-4 items-center hover:bg-gray-50">
-                    <span>Products</span>
-                </a>
-            </li>
-            <li class="relative parent">
-                <a href="#" class="flex justify-between md:inline-flex p-4 items-center hover:bg-gray-50 space-x-2">
-                    <span>Service</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-current pt-1" viewBox="0 0 24 24"><path d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z"/></svg>
-                </a>
-                <ul class="child transition duration-300 md:absolute top-full right-0 md:w-48 bg-white md:shadow-lg md:rounded-b ">
-                    <li>
-                        <a href="#" class="flex px-4 py-3 hover:bg-gray-50">
-                            Web development
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="flex px-4 py-3 hover:bg-gray-50">
-                            Web Design
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="flex px-4 py-3 hover:bg-gray-50">
-                            Machine Learning
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#" class="flex md:inline-flex p-4 items-center hover:bg-gray-50">
-                    <span>About us</span>
-                </a>
-            </li>
-        </ul>
-        <div class="ml-auto md:hidden text-gray-500 cursor-pointer">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"/></svg>
+<!-- make this a component with  and change it dinamically with auth user-->
+<header class="text-gray-600 body-font shadow-md">
+    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+        <nav class="flex lg:w-2/5 flex-wrap items-center text-base md:ml-auto">
+            <a class="mr-5 hover:text-gray-900">Best Dev</a>
+            <a class="mr-5 hover:text-gray-900">Games</a>
+            <a class="hover:text-gray-900">User</a>
+        </nav>
+        <a class="flex order-first lg:order-none lg:w-1/5 title-font font-medium items-center text-gray-900 lg:items-center lg:justify-center mb-4 md:mb-0">
+            <img class="h-28 md:h-14 py-4 md:py-0 " src="images/icon.svg">
+        </a>
+        <div class="lg:w-2/5 inline-flex lg:justify-end ml-5 lg:ml-0">
+            <button class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">Log in
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                    <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+            </button>
         </div>
-    </nav>
-</div>
+    </div>
+</header>
+
+
+<section class="text-gray-600 body-font relative">
+    <form action="" method="post">
+    @csrf
+    <div class="container px-5 py-24 mx-auto">
+        <div class="flex flex-col text-center w-full mb-12">
+            <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Prova upload Imag</h1>
+        </div>
+        <div class="lg:w-1/2 md:w-2/3 mx-auto">
+            <div class="p-2 w-full">
+                <div class="relative">
+                <input name="image" type="file"/>
+                </div>
+            </div>
+            <div class="p-2 w-full">
+                <button type="subilmt" class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Send</button>
+            </div>
+        </div>
+    </div>
+    </form>
+</section>
+
 
 
 @endsection
