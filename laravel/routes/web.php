@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\GamesController;
+use App\Http\Controllers\GiochiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,15 +18,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name("welcome");
 
-Route::post('/', function (Request $r) {
-    dd($r->hasFile('image'));
-    return "ok";//view('welcome');
-});
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/games',[GamesController::class, 'index'] )->middleware(['auth'])->name('games');
 
 require __DIR__.'/auth.php';

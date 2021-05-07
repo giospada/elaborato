@@ -12,7 +12,20 @@ e il buisness è:
 - vendere i giochi
 - classificare gli sviluppatori per farli emergere e venderli alle aziende
 
+## Sito
 
+Pagine:
+- welcome
+- lista giochi
+- giochi
+- profile
+- update profile
+- add game
+
+componenti:
+- navbar
+- griglia giochi
+- profilo
 
 
 ## Database
