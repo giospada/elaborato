@@ -10,7 +10,7 @@ class GamesController extends Controller
 {
     public function index()
     {
-        $games=Games::paginate(8);
+        $games=Games::paginate(6);
         return view('games.index',["games"=>$games]);//compact($games));
     }
     public function show($id)

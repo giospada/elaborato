@@ -10,12 +10,13 @@
 
                     <h2 class="title-font sm:text-2xl text-1xl mb-4 font-medium text-gray-900">Creato da <a class="text-indigo-500" href="/users/{{$user->id}}">{{$user->name}}</a></h2>
                     <p class="mb-8 leading-relaxed">
-                    {{$game->descrizione}}
+                        {{$game->descrizione}}
                     <div class="flex justify-center">
 
                         <button class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Compra {{$game->prezzo}}€</button>
                     </div>
                 </div>
+            
             </div>
         </section>
 </x-app-layout>

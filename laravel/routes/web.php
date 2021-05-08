@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\GamesController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Http\Request;
@@ -29,5 +30,6 @@ Route::get('/users/{id}',[UsersController::class, 'show'] )->middleware(['auth']
 
 Route::get('/users',[UsersController::class, 'index'] )->middleware(['auth'])->name("users");
 
+Route::post('/contacts',[ContactController::class, 'store']);
 
 require __DIR__.'/auth.php';
