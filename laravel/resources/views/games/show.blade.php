@@ -6,8 +6,9 @@
                     <img class="object-cover object-center rounded" alt="hero" src="/images/games/{{$game->logo_path}}">
                 </div>
                 <div class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
-                    <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">{{$game->titolo}}
-                    </h1>
+                    <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">{{$game->titolo}}</h1>
+
+                    <h2 class="title-font sm:text-2xl text-1xl mb-4 font-medium text-gray-900">Creato da <a class="text-indigo-500" href="/users/{{$user->id}}">{{$user->name}}</a></h2>
                     <p class="mb-8 leading-relaxed">
                     {{$game->descrizione}}
                     <div class="flex justify-center">

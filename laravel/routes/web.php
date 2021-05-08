@@ -25,7 +25,9 @@ Route::get('/games',[GamesController::class, 'index'] )->middleware(['auth'])->n
 
 Route::get('/games/{id}',[GamesController::class, 'show'] )->middleware(['auth']);
 
-Route::get('/users',[UsersController::class, 'index'] )->middleware(['auth'])->name('users');
+Route::get('/users/{id}',[UsersController::class, 'show'] )->middleware(['auth']);
+
+Route::get('/users',[UsersController::class, 'index'] )->middleware(['auth'])->name("users");
 
 
 require __DIR__.'/auth.php';

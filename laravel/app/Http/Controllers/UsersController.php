@@ -2,12 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
+    public function show($id)
+    {
+
+        $user = User::find($id);
+        if ($user == null)
+            return redirect('401');
+
+        $games = $user->games()->paginate(8);
+        return view('users.show', ["games" => $games, "user" => $user]);
+    }
+
+
     public function index()
     {
-        return view('users.index');
+        $users = User::paginate(16);
+
+        return view('users.index',["users"=>$users]);
     }
 }

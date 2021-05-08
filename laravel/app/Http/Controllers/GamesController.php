@@ -18,7 +18,8 @@ class GamesController extends Controller
         $game=Games::find($id);
         if($game==null)
             return redirect('401');
-        return view('games.show',["game"=>$game]);//compact($games));
+        $user=$game->user()->get()[0];
+        return view('games.show',["game"=>$game,"user"=>$user]);//compact($games));
     }
 
 }
