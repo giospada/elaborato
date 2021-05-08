@@ -8,10 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Games extends Model
 {
     use HasFactory;
-
+    
+    
+    protected $table = 'games';
+    protected $primaryKey = 'id';
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class,"user_id","id");
     }
 }

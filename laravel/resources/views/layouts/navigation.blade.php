@@ -2,10 +2,16 @@
 <header class="text-gray-600 body-font shadow-md">
     <div class="container mx-auto flex flex-wrap p-1 flex-col md:flex-row items-center">
         <nav class="flex lg:w-2/5 flex-wrap items-center text-base md:ml-auto">
+
             <a class="mr-5 hover:text-gray-900">Best Dev</a>
-            <a class="mr-5 hover:text-gray-900">Games</a>
-            <a class="hover:text-gray-900">User</a>
+            <a class="mr-5 hover:text-gray-900 {{request()->routeIs("games")?"border-blue-500 border-b-2":""}}" href="{{route('games')}}">Games</a>
+            <a class="hover:text-gray-900 {{request()->routeIs("users")?"border-blue-500 border-b-2":""}}" href="{{route('users')}}">User</a>
+
+            <!--
+                <a class="hover:text-gray-900 {{request()->routeIs("dashboard")?"":"text-red-100"}}" href="{{route('users')}}">User</a>
+        -->
         </nav>
+        
         <a class="flex order-first lg:order-none lg:w-1/5 title-font font-medium items-center text-gray-900 lg:items-center lg:justify-center mb-4 md:mb-0">
             <x-application-logo class="h-28 md:h-14 py-4 md:py-0 " />
         </a>

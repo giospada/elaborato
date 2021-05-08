@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\GamesController;
-use App\Http\Controllers\GiochiController;
+use App\Http\Controllers\UsersController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,5 +22,8 @@ Route::get('/', function () {
 
 
 Route::get('/games',[GamesController::class, 'index'] )->middleware(['auth'])->name('games');
+
+Route::get('/users',[UsersController::class, 'index'] )->middleware(['auth'])->name('users');
+
 
 require __DIR__.'/auth.php';
