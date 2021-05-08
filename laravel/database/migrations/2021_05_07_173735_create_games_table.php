@@ -18,6 +18,8 @@ class CreateGamesTable extends Migration
             $table->integer("user_id");
             $table->string("titolo");
             $table->text('descrizione');
+            $table->text('logo_path');
+            $table->float('price');
             $table->timestamps();
         });
     }
