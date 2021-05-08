@@ -1,25 +1,18 @@
-<x-app-layout>
-
+<x-guest-layout>
 
 <section class="text-gray-600 body-font relative">
-    <form action="" method="post">
-    @csrf
-    <div class="container px-5 py-24 mx-auto">
-        <div class="flex flex-col text-center w-full mb-12">
-            <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Prova upload Imag</h1>
-        </div>
-        <div class="lg:w-1/2 md:w-2/3 mx-auto">
-            <div class="p-2 w-full">
-                <div class="relative">
-                <input name="image" type="file"/>
-                </div>
-            </div>
-            <div class="p-2 w-full">
-                <button type="subilmt" class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Send</button>
-            </div>
-        </div>
-    </div>
-    </form>
+  <div class="absolute inset-0 bg-gray-300 h-screen">
+  </div>
+  <div class="container px-5 py-24 mx-auto flex">
+    <div class="lg:w-1/3 md:w-1/2 bg-white rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0 relative z-10 shadow-md">
+      <h2 class="text-gray-900 text-5xl mb-1 font-medium title-font">Lusus</h2>
+        <p class="pt-2">
+            siamo un'azienda creata da sviluppatori per sviluppatori.
+            vogliamo dare un posto per gli sviluppatori di giochi dove pubblicare i loro giochi, scambiarsi consigli e offrire opportunità lavorative.
+        </p>
+  </div>
+  @include('layouts.navigation')
+  
 </section>
 
-</x-app-layout>
+</x-guest-layout>

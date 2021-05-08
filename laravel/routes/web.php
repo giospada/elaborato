@@ -23,6 +23,8 @@ Route::get('/', function () {
 
 Route::get('/games',[GamesController::class, 'index'] )->middleware(['auth'])->name('games');
 
+Route::get('/games/{id}',[GamesController::class, 'show'] )->middleware(['auth']);
+
 Route::get('/users',[UsersController::class, 'index'] )->middleware(['auth'])->name('users');
 
 

@@ -19,7 +19,7 @@ class CreateGamesTable extends Migration
             $table->string("titolo");
             $table->text('descrizione');
             $table->text('logo_path');
-            $table->float('price');
+            $table->float('prezzo');
             $table->timestamps();
         });
     }
