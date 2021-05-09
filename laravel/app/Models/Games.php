@@ -17,4 +17,9 @@ class Games extends Model
     {
         return $this->belongsTo(User::class,"user_id","id");
     }
+
+    public function gameImage()
+    {
+        return $this->hasMany(GameImages::class,"game_id","id");
+    }
 }

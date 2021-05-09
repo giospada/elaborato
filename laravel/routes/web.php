@@ -21,14 +21,20 @@ Route::get('/', function () {
     return view('welcome');
 })->name("welcome");
 
+//games
 
 Route::get('/games',[GamesController::class, 'index'] )->middleware(['auth'])->name('games');
 
 Route::get('/games/{id}',[GamesController::class, 'show'] )->middleware(['auth']);
 
+Route::get('/games/{id}/edit',[GamesController::class, 'edit'] )->middleware(['auth']);
+
+//user
+
 Route::get('/users/{id}',[UsersController::class, 'show'] )->middleware(['auth']);
 
 Route::get('/users',[UsersController::class, 'index'] )->middleware(['auth'])->name("users");
+
 
 Route::post('/contacts',[ContactController::class, 'store']);
 

@@ -15,6 +15,8 @@ class CreateGameImagesTable extends Migration
     {
         Schema::create('game_images', function (Blueprint $table) {
             $table->id();
+            $table->integer('game_id');
+            $table->string('path');
             $table->timestamps();
         });
     }

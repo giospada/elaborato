@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\GameImages;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\Storage;
 
 class GameImagesFactory extends Factory
 {
@@ -13,6 +14,11 @@ class GameImagesFactory extends Factory
      * @var string
      */
     protected $model = GameImages::class;
+    /**
+     * l'array di immagine di prova tra cui scegliere
+     * @var array
+     */
+    public $images;
 
     /**
      * Define the model's default state.
@@ -20,9 +26,10 @@ class GameImagesFactory extends Factory
      * @return array
      */
     public function definition()
-    {
+    {        
+        $images = Storage::files("public/gamesimgs/");
         return [
-            //
+            'path' => explode("/",$this->faker->randomElement($this->images))[2],
         ];
     }
 }
