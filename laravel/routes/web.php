@@ -25,9 +25,9 @@ Route::get('/', function () {
 
 Route::get('/games',[GamesController::class, 'index'] )->middleware(['auth'])->name('games');
 
-Route::get('/games/{id}',[GamesController::class, 'show'] )->middleware(['auth']);
+Route::get('/games/{id}',[GamesController::class, 'show'] )->whereNumber('id')->middleware(['auth']);
 
-Route::get('/games/{id}/edit',[GamesController::class, 'edit'] )->middleware(['auth']);
+Route::get('/games/create',[GamesController::class, 'create'] )->middleware(['auth']);
 
 //user
 

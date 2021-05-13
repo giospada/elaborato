@@ -13,6 +13,12 @@ class GamesController extends Controller
         $games=Games::paginate(6);
         return view('games.index',["games"=>$games]);//compact($games));
     }
+
+    public function create()
+    {
+        return view('games.create');
+    }
+
     public function show($id)
     {
         $game=Games::find($id);
