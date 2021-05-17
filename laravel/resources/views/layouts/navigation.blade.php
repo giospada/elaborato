@@ -1,9 +1,9 @@
 
 <header class="text-gray-600 body-font shadow-md">
-    <div class="container mx-auto flex flex-wrap p-1 flex-col md:flex-row items-center">
+    <div class="container  mx-auto flex flex-wrap p-1 px-4 flex-col md:flex-row items-center">
         <nav class="flex lg:w-2/5 flex-wrap items-center text-base md:ml-auto">
              <a class="mr-5 hover:text-gray-900 {{request()->routeIs("games")?"border-blue-500 border-b-2":""}}" href="{{route('games')}}">Games</a>
-            
+             <a class="mr-5 hover:text-gray-900 {{request()->routeIs("dashboard")?"border-blue-500 border-b-2":""}}" href="{{route('dashboard')}}">Dashboard</a>
             <a class="hover:text-gray-900 {{request()->routeIs("users")?"border-blue-500 border-b-2":""}}" href="{{route('users')}}">User</a>
 
             <!--

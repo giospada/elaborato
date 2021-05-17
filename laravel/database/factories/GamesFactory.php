@@ -44,11 +44,11 @@ for url in p.findall(r.text):
     public function definition()
     {
 
-        $images = Storage::files("public/games/");
+        $this->images = Storage::files("public/games/");
         return [
             'titolo' => $this->faker->word(),
             'descrizione' => $this->faker->paragraph(),
-            'logo_path' => explode("/",$this->faker->randomElement($this->images))[2],
+            'logo' => explode("/",$this->faker->randomElement($this->images))[2],
             'prezzo'=>$this->faker->randomFloat(2,0,1)
         ];
     }

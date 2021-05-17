@@ -27,7 +27,7 @@ class GameImagesFactory extends Factory
      */
     public function definition()
     {        
-        $images = Storage::files("public/gamesimgs/");
+        $this->images = Storage::files("public/gamesimgs/");
         return [
             'path' => explode("/",$this->faker->randomElement($this->images))[2],
         ];

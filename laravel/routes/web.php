@@ -25,16 +25,23 @@ Route::get('/', function () {
 
 Route::get('/games',[GamesController::class, 'index'] )->middleware(['auth'])->name('games');
 
-Route::get('/games/{id}',[GamesController::class, 'show'] )->middleware(['auth']);
+Route::get('/games/{id}',[GamesController::class, 'show'] )->whereNumber("id")->middleware(['auth']);
 
 Route::get('/games/{id}/edit',[GamesController::class, 'edit'] )->middleware(['auth']);
 
+Route::get('/games/create',[GamesController::class, 'create'] )->middleware(['auth'])->name("create");
+
+
 //user
+
+Route::get('/dashboard',[UsersController::class, 'edit'] )->middleware(['auth'])->name('dashboard');
+
 
 Route::get('/users/{id}',[UsersController::class, 'show'] )->middleware(['auth']);
 
 Route::get('/users',[UsersController::class, 'index'] )->middleware(['auth'])->name("users");
 
+Route::get('/dashboard', [UsersController::class,'dashboard'])->middleware(['auth'])->name("dashboard");
 
 Route::post('/contacts',[ContactController::class, 'store']);
 

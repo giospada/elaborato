@@ -4,10 +4,16 @@ namespace Database\Factories;
 
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class UserFactory extends Factory
 {
+     /**
+     * l'array di immagine di prova tra cui scegliere
+     * @var array
+     */
+    public $images;
     /**
      * The name of the factory's corresponding model.
      *
@@ -22,6 +28,7 @@ class UserFactory extends Factory
      */
     public function definition()
     {
+        $this->images = Storage::files("public/logos/");
         return [
             'name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),

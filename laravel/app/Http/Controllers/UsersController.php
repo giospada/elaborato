@@ -4,9 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
 {
+
+    public function dashboard()
+    {        
+        $user= Auth::user();
+        $games = $user->games()->paginate(8);
+        return view('dashboard', ["games" => $games, "user" => $user]);
+       
+    }
     public function show($id)
     {
 
