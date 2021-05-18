@@ -37,11 +37,13 @@
 
     </x-detail>
 
-    <div class="container mx-auto items-center flex flex-wrap">
+    <div class="container mx-auto items-center xl:grid-cols-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 grid ">
         @foreach($game->gameImage()->get() as $image)
 
-        <div class=" xl:w-1/5 sm:w-1/2 md:w-1/3 lg:w-1/4 m-4 ">
-            <img src="/storage/gamesimgs/{{$image->path}}" class="rounded-sm w-full h-full object-cover">
+        <div x-data="{full:false}" class="  m-4 ">
+            <div :class="(full ?'p-2 fixed w-full h-100 inset-0 z-50 overflow-hidden flex justify-center items-center bg-black bg-opacity-75':'')" @click="full=!full;">
+                <img src="/storage/gamesimgs/{{$image->path}}" :class="'rounded-sm  object-cover '+(full?'max-h-screen max-w-screen':'w-full h-full')" >
+            </div>
         </div>
         @endforeach
     </div>

@@ -748,42 +748,59 @@ select {
   outline: 1px auto -webkit-focus-ring-color;
 }
 
-<<<<<<< HEAD
-.btn{
-  --tw-bg-opacity: 1;
-  background-color: rgba(99, 102, 241, var(--tw-bg-opacity));
-=======
-.input{
-  @applyrounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50;
+.container {
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+  }
 }
 
 .btn{
   --tw-bg-opacity: 1;
-  background-color: rgba(31, 41, 55, var(--tw-bg-opacity));
->>>>>>> 7dd2f98b6c8d007ac1adf982f43eb3c18d4a425b
+  background-color: rgba(99, 102, 241, var(--tw-bg-opacity));
 }
 
 .btn:hover {
   --tw-bg-opacity: 1;
-<<<<<<< HEAD
   background-color: rgba(79, 70, 229, var(--tw-bg-opacity));
-=======
-  background-color: rgba(55, 65, 81, var(--tw-bg-opacity));
->>>>>>> 7dd2f98b6c8d007ac1adf982f43eb3c18d4a425b
 }
 
 .btn {
   border-color: transparent;
-<<<<<<< HEAD
   --tw-border-opacity: 1;
   border-color: rgba(79, 70, 229, var(--tw-border-opacity));
-=======
->>>>>>> 7dd2f98b6c8d007ac1adf982f43eb3c18d4a425b
 }
 
 .btn:focus {
   --tw-border-opacity: 1;
-  border-color: rgba(17, 24, 39, var(--tw-border-opacity));
+  border-color: rgba(67, 56, 202, var(--tw-border-opacity));
 }
 
 .btn {
@@ -820,11 +837,7 @@ select {
 
 .btn {
   --tw-ring-opacity: 1;
-<<<<<<< HEAD
   --tw-ring-color: rgba(165, 180, 252, var(--tw-ring-opacity));
-=======
-  --tw-ring-color: rgba(209, 213, 219, var(--tw-ring-opacity));
->>>>>>> 7dd2f98b6c8d007ac1adf982f43eb3c18d4a425b
   --tw-text-opacity: 1;
   color: rgba(255, 255, 255, var(--tw-text-opacity));
   text-transform: uppercase;
@@ -838,7 +851,6 @@ select {
   transition-duration: 150ms;
 }
 
-<<<<<<< HEAD
 .input{
   --tw-bg-opacity: 1;
   background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
@@ -882,42 +894,6 @@ select {
   transition-duration: 150ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 200ms;
-}
-
-=======
->>>>>>> 7dd2f98b6c8d007ac1adf982f43eb3c18d4a425b
-.container {
-  width: 100%;
-}
-
-@media (min-width: 640px) {
-  .container {
-    max-width: 640px;
-  }
-}
-
-@media (min-width: 768px) {
-  .container {
-    max-width: 768px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .container {
-    max-width: 1024px;
-  }
-}
-
-@media (min-width: 1280px) {
-  .container {
-    max-width: 1280px;
-  }
-}
-
-@media (min-width: 1536px) {
-  .container {
-    max-width: 1536px;
-  }
 }
 
 .space-y-0 > :not([hidden]) ~ :not([hidden]) {

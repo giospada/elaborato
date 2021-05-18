@@ -9,23 +9,6 @@ use Illuminate\Support\Facades\Storage;
 class GamesFactory extends Factory
 {
 
-/** download image
-import requests
-import re
-import os
-import base64
-
-
-r = requests.get('https://itch.io/')
-p = re.compile('<a data-background_image="(.*?)" class="game_thumb"')
-for url in p.findall(r.text):
-    response = requests.get(url)
-    name=base64.b32encode(os.urandom(30)).decode()
-    
-    with open("tmp/"+name, 'wb') as f:
-        f.write(response.content)
-
-**/
     
 
     /**
@@ -53,3 +36,44 @@ for url in p.findall(r.text):
         ];
     }
 }
+
+/** download image
+import requests
+import re
+import os
+import base64
+
+firstdir="tmp"
+r = requests.get('https://itch.io/')
+link = re.compile('class="title" href="(.*?)"')
+imglink = re.compile('<a data-background_image="(.*?)" class="game_thumb"')
+allimg=re.compile('src="(https://img.*?)"')
+
+
+links=link.findall(r.text)
+imglinks=imglink.findall(r.text)
+
+for i in range(0,len(links)):
+    print(links[i])
+    print(imglinks[i])
+    response = requests.get(imglinks[i])
+    name=links[i].split("/")[-1];
+    os.mkdir(firstdir+"/"+str(name)) 
+    os.mkdir(firstdir+"/"+str(name)+"/imgs") 
+    with open(firstdir+"/"+str(name)+"/logo", 'wb') as f:
+        f.write(response.content)
+    
+    response = requests.get(links[i])
+    for j in allimg.findall(response.text):
+        nname=base64.b32encode(os.urandom(30)).decode()
+        
+        res = requests.get(j)
+        with open(firstdir+"/"+str(name)+"/imgs/"+nname, 'wb') as f:
+            f.write(res.content)
+
+
+
+    i+=1
+
+
+**/
