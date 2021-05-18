@@ -7,14 +7,22 @@ use Illuminate\View\Component;
 class gamecard extends Component
 {
     public $game;
+    /** 
+    *    costum link
+    *
+    *    @var string 
+    */
+    public $link;
+    
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($game)
+    public function __construct($game,string $link="/")
     {
         $this->game=$game;
+        $this->link=$link;
     }
 
     /**

@@ -13,14 +13,22 @@ class gameslist extends Component
     *    @var Collection 
     */
     public $games;
+
+    /** 
+    *    costum link
+    *
+    *    @var string 
+    */
+    public $link;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct(Collection $games)
+    public function __construct(Collection $games,string $link)
     {
         $this->games=$games;
+        $this->link=$link;
     }
 
     /**

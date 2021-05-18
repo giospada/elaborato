@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-detail>
         <x-slot name="image">
-            <img class="object-cover object-center rounded" alt="hero" src="/storage/games/{{$game->logo}}">
+            <img class="h-64 w-64 object-cover object-center rounded" alt="hero" src="/storage/games/{{$game->logo}}">
         </x-slot>
 
         <x-slot name="titolo">
@@ -40,9 +40,9 @@
     <div class="container mx-auto items-center flex flex-wrap">
         @foreach($game->gameImage()->get() as $image)
 
-        <div class="lg:w-1/3 sm:w-1/2 p-4 ">
+        <div class=" xl:w-1/5 sm:w-1/2 md:w-1/3 lg:w-1/4 m-4 ">
             <img src="/storage/gamesimgs/{{$image->path}}" class="rounded-sm w-full h-full object-cover">
         </div>
         @endforeach
-        <div>
+    </div>
 </x-app-layout>

@@ -9,6 +9,10 @@ class GameImages extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'game_id',
+        'path'
+    ];
 
     public function game()
     {

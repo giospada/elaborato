@@ -1,15 +1,19 @@
 <x-app-layout>
-    <div class="container px-5 pt-24 mx-auto">
-        <div class="text-center mb-20">
+    <x-detail>
+        <x-slot name="titolo">
             <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4">{{$user->name}}</h1>
-            <div class="flex mt-6 justify-center">
-                <div class="w-16 h-1 rounded-full bg-indigo-500 inline-flex"></div>
-            </div>
-        </div>
-    </div>
-    
+        </x-slot>
+        <x-slot name="image">
+            <img class="h-48 w-48 object-cover object-center rounded" src="/storage/logos/{{$user->logo}}">
+        </x-slot>
+        <x-slot name="descrizione">
+
+            <a href="/games/create"><x-button class="mt-8" >Nuovo Gioco</x-button></a>
+        </x-slot>
+    </x-detail>
+
     <div class="pt-24">
-        <x-gameslist :games="$games">
+        <x-gameslist :games="$games" :link="'/edit'">
         </x-gameslist>
     </div>
 </x-app-layout>

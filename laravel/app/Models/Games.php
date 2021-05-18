@@ -8,7 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Games extends Model
 {
     use HasFactory;
-    
+    protected $fillable = [
+        'user_id',
+        'titolo',
+        'descrizione',
+        'prezzo',
+        'logo'
+    ];
     
     protected $table = 'games';
     protected $primaryKey = 'id';
