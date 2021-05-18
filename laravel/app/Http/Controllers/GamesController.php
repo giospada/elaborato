@@ -51,6 +51,7 @@ class GamesController extends Controller
             return redirect('/games/' . ($game->id));
         } else
             return view('games.create'); //compact($games));
+
     }
 
     public function show($id)
