@@ -46,4 +46,16 @@ class User extends Authenticatable
     public function games(){
         return $this->hasMany(Games::class,"user_id","id");
     }
+
+    public static function boot()
+    {
+        parent::boot();
+        self::deleting(function ($user) {
+            $user->games()->each(
+                function ($game) {
+                    $game->delete();
+                }
+            );
+        }); 
+    }
 }

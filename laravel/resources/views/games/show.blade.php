@@ -18,9 +18,6 @@
             </p>
 
             <div class="flex justify-center">
-                <x-button type="subilmt">
-                    Compra {{$game->prezzo}}€
-                </x-button>
                 @can('update',$game)
                 <a href="/games/{{$game->id}}/edit" class="py-4">
                     <svg xmlns="http://www.w3.org/2000/svg" class="ml-4 w-4 h-4 inline " viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -30,6 +27,10 @@
                     </svg>
                     Modificami
                 </a>
+                @else
+                <x-button type="subilmt">
+                    Compra {{$game->prezzo}}€
+                </x-button>
                 @endcan
 
             </div>
@@ -42,7 +43,7 @@
 
         <div x-data="{full:false}" class="  m-4 ">
             <div :class="(full ?'p-2 fixed w-full h-100 inset-0 z-50 overflow-hidden flex justify-center items-center bg-black bg-opacity-75':'')" @click="full=!full;">
-                <img src="/storage/gamesimgs/{{$image->path}}" :class="'rounded-sm  object-cover '+(full?'max-h-screen max-w-screen':'w-full h-full')" >
+                <img src="/storage/gamesimgs/{{$image->path}}" :class="'rounded-sm  object-cover '+(full?'max-h-screen max-w-screen':'w-full h-full')">
             </div>
         </div>
         @endforeach

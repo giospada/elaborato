@@ -15,17 +15,29 @@ class Games extends Model
         'prezzo',
         'logo'
     ];
-    
+
     protected $table = 'games';
     protected $primaryKey = 'id';
 
     public function user()
     {
-        return $this->belongsTo(User::class,"user_id","id");
+        return $this->belongsTo(User::class, "user_id", "id");
     }
 
     public function gameImage()
     {
-        return $this->hasMany(GameImages::class,"game_id","id");
+        return $this->hasMany(GameImages::class, "game_id", "id");
+    }
+
+    public static function boot()
+    {
+        parent::boot();
+        self::deleting(function ($game) {
+            $game->gameImage()->each(
+                function ($img) {
+                    $img->delete();
+                }
+            );
+        }); 
     }
 }

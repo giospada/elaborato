@@ -32,7 +32,7 @@ class GamesFactory extends Factory
             'titolo' => $this->faker->word(),
             'descrizione' => $this->faker->paragraph(),
             'logo' => explode("/",$this->faker->randomElement($this->images))[2],
-            'prezzo'=>$this->faker->randomFloat(2,0,1)
+            'prezzo'=>$this->faker->randomFloat(2,0,10)
         ];
     }
 }
@@ -75,5 +75,39 @@ for i in range(0,len(links)):
 
     i+=1
 
+    metdo per aggiungere tutti 
+
+    public function createnew()
+    {
+        $games = Storage::directories("public/tmp/");
+        $users=User::all();
+        $gen=Factory::create();
+        $count=20;
+        foreach ($games as $game) {
+            $count--;
+            if($count==0)break;
+            $name = explode("/", $game)[2];
+            $hashedname = base64_encode($name);
+            Storage::copy($game . '/logo', 'public/games/' . $hashedname);
+            $user=$users[rand(0,count($users)-1)];
+            $gameobj = Games::create([
+                'user_id' => $user->id,
+                'titolo' => str_replace("-"," ",$name),
+                'descrizione' => $gen->paragraph(),
+                'prezzo' => $gen->randomFloat(2,0,10),
+                'logo' => $hashedname,
+            ]);
+            $imgs = Storage::files("public/tmp/".$name."/imgs/");
+            foreach ($imgs as $img) {
+                $iname = last(explode("/", $img));
+                Storage::copy($img, 'public/gamesimgs/' .$iname);    
+                GameImages::create([
+                    'game_id' => $gameobj->id,
+                    'path' => $iname
+                ]);
+            }
+        }
+        return redirect('/games');
+    }
 
 **/

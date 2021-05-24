@@ -29,10 +29,13 @@ Route::get('/games/{id}',[GamesController::class, 'show'] )->whereNumber("id")->
 
 Route::get('/games/{id}/edit',[GamesController::class, 'edit'] )->middleware(['auth']);
 
-Route::get('/games/create',[GamesController::class, 'create'] )->middleware(['auth']);
+Route::get('/games/create',[GamesController::class, 'create'] )->middleware(['auth'])->name("create");
 
-Route::match(['get', 'post'],'/games/create',[GamesController::class, 'create'] )->middleware(['auth'])->name("create");
+Route::post('/games/{id}',[GamesController::class, 'store'] )->middleware(['auth']);
 
+Route::patch('/games/{id}',[GamesController::class, 'update'] )->middleware(['auth']);
+
+Route::delete('/games/{id}',[GamesController::class, 'delete'] )->middleware(['auth']);
 
 
 //user

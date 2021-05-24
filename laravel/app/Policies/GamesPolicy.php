@@ -55,6 +55,7 @@ class GamesPolicy
     {
         return $user->id==$games->user()->get()[0]->id;
     }
+    
 
     /**
      * Determine whether the user can delete the model.
@@ -65,7 +66,7 @@ class GamesPolicy
      */
     public function delete(User $user, Games $games)
     {
-        //
+        return $user->id==$games->user()->get()[0]->id;
     }
 
     /**
