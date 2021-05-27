@@ -1,7 +1,7 @@
+
 <x-app-layout>
 
-
-    <!--- Banner-->
+    <!--- Banner con descrizione -->
     <section class="text-gray-600 body-font relative block  min-h-screen">
         <div class="absolute inset-0 bg-gray-300 ">
             <img class="w-full h-full object-cover " style="transform: scaleX(-1);" src="/images/static/programmatore.jpg" />
@@ -13,11 +13,12 @@
                     Siamo un'azienda creata da sviluppatori per sviluppatori.
                     Vogliamo dare un posto per gli sviluppatori di giochi dove pubblicare i loro giochi, scambiarsi consigli e offrire opportunità lavorative.
                 </p>
+                <!-- link al business plan -->
+                <a href="{{route('business')}}" class="btn mt-3 md:mx-3 justify-center "> Business Plan</a>
             </div>
 
     </section>
 
-    <!--- Principi-->
    
 
     <!--- Contatti-->
