@@ -3,6 +3,8 @@
 ## 1
 
 
+[!schema logico](imgs/schemalogico.png)
+
 
 
 
@@ -113,18 +115,12 @@ in più pagine quindi li definiamo solo una volta in questo layout,
 questo si trova su `resources/views/layout/app.blade.php`,
 nella prima riga troveremo 
 
-```html 
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-```
-
-le `{{}}` in mezzo al codice html indicano che manderemo in esecuzione una striga php 
-e inseriremo nell'html il suo  risultato 
-(in questo chiama app che ritorna un service controller è un po' complicato rispetto a quello
-che vogliamo spiegare quindi salitamo)
-più avanti possiamo trovarne una altro esempio
 ```html
     <meta name="csrf-token" content="{{ csrf_token() }}">
 ```
+
+le `{{}}` in mezzo al codice html indicano che manderemo in esecuzione una striga php 
+e inseriremo nell'html il suo  risultato in questo caso aggiunge un token 
 che aggiunge un token [csrf](https://en.wikipedia.org/wiki/Cross-site_request_forgery) 
 
 più avanti troveremo delle altre direttive in blade `@include('layouts.navigation')` che include il file con la nav bar
@@ -133,7 +129,22 @@ e `{{$slot}}` che aggiunge tutto quello contenuto nel tag `<x-app-layout>`
 
 [più informazioni sulla documentazione di blade](https://laravel.com/docs/8.x/blade)
 
-TODO: aggiungere la spegazione del form in welcome
+più avanti su welcome troveremo un form con circa tag
+```html
+<form action="/contacts" method="post" >
+    @csrf
+    <x-input type="text" id="name" name="name" class=""></x-input> 
+    <x-input type="email" id="email" name="email" class=""></x-input> 
+    <textarea id="message" name="message" class="input w-full h-32  resize-none "></textarea>
+    <x-button type="subilmt" class="">Manda</x-button>
+</form>
+```
+
+similmente avevamo vitsto prima per il x-app-layout, x-input e x-button sono due comonenti 
+che si trovano in `resouces/views/components/` come prima usano la variabile $slot e in più
+si possono unire degli attributi predefinito con quelli passati in input al componente
+questi componenti si tradurranno in semplici input e button costumizzati 
+e una volta riempiti manderanno tutto alla pagina contacts
 
 
 dopo aver visto una route che ritorna una view,
