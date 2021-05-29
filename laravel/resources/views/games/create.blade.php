@@ -1,5 +1,5 @@
 <x-app-layout>
-    <form action="" method="post" enctype="multipart/form-data">
+    <form action="/games/" method="post" enctype="multipart/form-data">
         @csrf
         <x-detail>
             <x-slot name="image">

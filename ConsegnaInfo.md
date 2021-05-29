@@ -1,9 +1,14 @@
 # Elaborato 
 
+[sito](https://f37c352ae614.ngrok.io)
+
 ## 1
 
+Il database conterra degli utenti, ogni utente potrà cerare dei giochi e i giochi possono avere delle immagini.
 
-[!schema logico](imgs/schemalogico.png)
+
+
+![schema logico](imgs/schemalogico.png)
 
 
 
@@ -24,7 +29,6 @@ mysql> show tables;
 | password_resets     |
 | users               |
 +---------------------+
-8 rows in set (0,00 sec)
 
 mysql> describe games;
 +-------------+---------------------+------+-----+---------+----------------+
@@ -39,7 +43,6 @@ mysql> describe games;
 | created_at  | timestamp           | YES  |     | NULL    |                |
 | updated_at  | timestamp           | YES  |     | NULL    |                |
 +-------------+---------------------+------+-----+---------+----------------+
-8 rows in set (0,00 sec)
 
 mysql> describe game_images;
 +------------+---------------------+------+-----+---------+----------------+
@@ -51,7 +54,6 @@ mysql> describe game_images;
 | created_at | timestamp           | YES  |     | NULL    |                |
 | updated_at | timestamp           | YES  |     | NULL    |                |
 +------------+---------------------+------+-----+---------+----------------+
-5 rows in set (0,00 sec)
 
 mysql> describe users;
 +-------------------+---------------------+------+-----+-----------------+----------------+
@@ -67,7 +69,29 @@ mysql> describe users;
 | created_at        | timestamp           | YES  |     | NULL            |                |
 | updated_at        | timestamp           | YES  |     | NULL            |                |
 +-------------------+---------------------+------+-----+-----------------+----------------+
-9 rows in set (0,00 sec)
+
+mysql> select count(games.id)as "numero giochi",name from games inner join users on users.id=games.user_id group by users.id;
++---------------+--------------------------+
+| numero giochi | name                     |
++---------------+--------------------------+
+|             1 | Cordelia Schumm          |
+|             2 | Enola Stiedemann III     |
+|             1 | Vance Leffler            |
+|             2 | Tyree Zieme              |
+|             1 | Mr. Emery Schulist       |
+|             1 | Annamarie Grant          |
+|             1 | Brown Mraz               |
+|             2 | Manley Windler           |
+|             2 | Roberta DuBuque Jr.      |
+|             1 | Mr. Elmore Wilderman V   |
+|             2 | Cyril Schmitt            |
+|             1 | Maximillian Christiansen |
+|             1 | Prof. Phyllis Boehm      |
++---------------+--------------------------+
+
+mysql> update users set name="Mario Rossi" where id=1;
+Rows matched: 1  Changed: 1  Warnings: 0
+
 
 ```
 
@@ -169,3 +193,19 @@ e in caso di errore tornare indietro alla pagina precedente.
 una volta validati i dati gli inseriamo nell'oggetto Contact precedentemente creato,
 lo salviamo nel database, e restituiamo la view `resources/views/contacts.blade.php`
 
+## 4
+
+**PAGINA CONTATTI**
+
+
+![contatti](imgs/contatti.gif)
+----
+**PAGINE GIOCHI E UTENTI**
+
+
+![game](imgs/games.gif)
+---
+**PAGINA CREATE E MODIFY**
+
+
+![createemodifica](imgs/createmodify.gif)

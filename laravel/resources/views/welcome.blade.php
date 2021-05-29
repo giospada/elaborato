@@ -7,7 +7,7 @@
             <img class="w-full h-full object-cover " style="transform: scaleX(-1);" src="/images/static/programmatore.jpg" />
         </div>
         <div class="container px-5 py-24 mx-auto flex">
-            <div class="lg:w-1/3 md:w-1/2 bg-white rounded-lg p-8 flex flex-col md:ml-auto w-full mt-64   relative z-10 shadow-md">
+            <div class="lg:w-1/3 md:w-1/2 bg-white rounded-lg p-8 flex flex-col md:ml-auto w-full mt-60 relative z-10 shadow-md">
                 <h2 class="text-gray-900 text-5xl mb-1 font-medium title-font">Lusus</h2>
                 <p class="pt-2">
                     Siamo un'azienda creata da sviluppatori per sviluppatori.
@@ -21,7 +21,7 @@
 
    
 
-    <!--- Contatti-->
+    <!--- Contatti  -->
 
     <section class="text-gray-600 body-font flex relative bg-white min-h-screen items-center content-center">
         <div class="container px-5 py-24 mx-auto flex sm:flex-nowrap flex-wrap ">
