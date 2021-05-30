@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class GameImages extends Model
 {
@@ -18,4 +19,12 @@ class GameImages extends Model
     {
         return $this->belongsTo(Games::class,"id","game_id");
     }
+    public static function boot()
+    {
+        parent::boot();
+        self::deleting(function ($gameimg) {
+            Storage::delete("public/gamesimgs/".$gameimg->path);
+        }); 
+    }
+
 }
